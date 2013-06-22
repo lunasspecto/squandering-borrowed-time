@@ -1,0 +1,30 @@
+Verb 'xyzzy'
+    * 					-> Xyzzy;
+
+Verb 'drive'
+    * 					-> Drive
+    * noun 				-> Drive;
+
+[ XyzzySub;
+    "You try an eldritch spell you learned in childhood, but no demon appears to do your bidding. Shit.";
+];
+
+[ DriveSub;
+    if (noun ofclass CompassDirection) "Supplying a direction in which
+    to drive is unnecessary in this game. If your car is around, ~DRIVE~
+    or ~DRIVE COROLLA~ should do the trick.";
+    if (noun == nothing) 
+    {
+	if (TestScope(car)) 
+	{
+	<<Drive car>>;
+	}
+	if (AfterRoutines()) rtrue;
+	"You can't see your car here.";
+    }
+    if (AfterRoutines()) rtrue;
+    "Driving is usually something you do to a car or some such
+    vehicle.", (note) 8;
+];
+
+

@@ -1,0 +1,213 @@
+Object noFaith "no faith in humanity"
+ with name 'faithlessness' 'no' 'faith' 'in' 'humanity',
+  description [;
+      print_ret "You see nothing special about having no faith in
+ humanity.", (note) 1;
+      
+   ],
+  before [;
+   Examine:
+    return false;
+   default:
+    "You can't really do that to something that isn't there.";
+   ],
+ has proper;
+
+Object stone "heavy stone"
+ with name 'heavy' 'stone' 'rock' 'rocks',
+  description "You've really no idea why you ever picked it up. It
+      must have been part of some deeply symbolic action in your
+      literary fantasies.",
+  after [;
+   Drop:
+      Achieved(0);
+      "Yeah, you've no need for that. Dropped.";
+   ];
+
+Object ravine "Cortlandt Ravine"
+ with 	description "Heaven knows why you pulled off here, of all
+ places. You must have briefly thought yourself the hero of one of the
+ Great American Novels and taken the opportunity to act out your
+ dramatically melancholic desires. When the fun is over, you can head
+ back up the rock slope you descended earlier. And it certainly feels
+ 	    like the fun is over.",
+	cant_go "The only passable way out of the ravine is back up the
+ 	    rocky slope by which you entered.",
+        default_go [; <<Go u_obj>>; ],
+	u_to slope,
+	out_to [; return self.u_to; ],
+ has light;
+
+Object -> creek "Dead Horse Creek"
+ with name 'dead' 'horse' 'creek' 'stream' 'water',
+  description [;
+      print_ret "Dead Horse Creek. The name really becomes it, the way
+ it winds listlessly among the stones, turning them a deeper shade of
+ gray. You wonder if there's any connection to the Dead Horse Creek
+ you saw hiking Mount Rainier as a kid. Those years, the years spent
+ in the shadow of Rainier, were the best years of your childhood. But
+ you're not feeling any of that here.", (note) 4;
+   ],
+  initial "Dead Horse Creek flows through here.",
+  before [;
+   Enter:
+    <<Swim>>;
+   ],
+  react_before [;
+   Swim: "The creek isn't nearly deep enough to make getting wet worth
+ your while.";
+  ],
+ has container static;
+
+Object slope "rocky slope"
+ with name 'rocky' 'slope' 'ravine',
+  description [;
+   print "A steep, rocky slope worthy of a John Wayne shootout scene
+       leads down ";
+   if (location == ravine) {
+    print "to this point, where the creek flows";
+    }
+   else {
+    print "into the ravine";
+    }
+   ".";
+   ],
+  found_in ravine observationPoint,
+  door_dir [;
+   if (location == ravine) {
+    return u_to;
+    }
+   else {
+    return d_to;
+    }
+   ],
+  door_to [;
+   if (location == ravine) {
+    if (stone in player) {
+     "Not while you're holding that heavy stone.";
+     }
+    return observationPoint;
+    }
+   else {
+    return ravine;
+    }
+   ],
+ has door ~openable open ~lockable ~locked scenery;
+
+Object observationPoint "Observation point"
+ with description "One of those pulling-off places where tourist
+ families of the '50s would pose for the Brownie, long before gas hit
+ four dollars per gallon. You could go down the rock slope again, but
+ going south, back onto the highway, might actually get you
+ somewhere.",
+	before [;
+	 Jump:
+	    deadflag = 3;
+	    "You throw in some calisthenics and stretching exercises
+ before your little dive into the ravine.";
+	 Listen:
+	    "You can hear the unseen creek and highway, each rushing
+ on in much the same way.";
+	],
+	d_to slope,
+	s_to [;
+	    YesNo.Ask(self.yes_answer,self.no_answer);
+	    "On foot?";
+	],
+	yes_answer [;
+	    deadflag = true;
+	    "You wander out onto a highway and are immediately hit by a
+ careening freight truck.";
+	],
+	no_answer [;
+	    print_ret "That's right. You haven't the guts to
+ hitchhike.", (note) 5;
+	],
+default_go [;
+    <<Drive>>;
+],
+ has light;
+
+Object -> car "car"
+ with 	name 'your' 'my' 'car' 'Toyota' 'Corolla',
+	description "A beat-up old Toyota Corolla. You can't remember
+ the model year, but it's only about two years younger than you
+ are. It's on loan from your father, so you'd best be careful with
+ it.",
+	article "your",
+	when_on [;
+	    print "Your car is standing here, running softly. It is ";
+	    if (self has open) "open.";
+	    "closed.";
+	],
+	when_off [;
+	    print "Your car is standing here, dormant. It is ";
+	    if (self has open) "open.";
+	    "closed.";
+	],
+
+	before [;
+	 Go:
+	    <<Drive self>>;
+	 Take:
+	    print "Now, ";
+	    style underline;
+	    print "that";
+	    style roman;
+	    print_ret " would be a feat worthy of Superman.", (note) 7;
+	],
+	after [;
+	    	 Drive:
+	    if (carKey in player)
+	    {
+		if (self has locked) <Unlock self>;
+		if (self has locked) return true;
+		switch (real_location)
+		{
+		   observationPoint:
+		    Achieved(1);
+		    print "You're supposed to be picking up Uncle Ted, but
+ 			you're the one driving. What do you want to do?^";
+		    DisplayMCMenu(driveFromRavine);
+		    return true;
+		 default:
+		    "You've nowhere to drive right now.";
+		}
+	    }
+	    else
+	    {
+		"But you aren't holding the key.";
+	    }
+	],
+	with_key carKey,
+ has 	switchable enterable static container ~open openable
+ lockable;
+
+Object wallet "wallet"
+ with 	name 'wallet',
+	description "A plain canvass affair.",
+	before [;
+	 Receive:
+	    if (noun has walletsized) return false;
+	    print (The) noun;
+	    if (noun has pluralname) print " don't";
+	    else print " doesn't";
+ 	    print_ret " really fit in ", (the) self, ".";
+	],
+ has 	openable container;
+
+Object -> license "driver's license"
+ with 	name 'driving' 'driver' 'driver^s' 'license' 'licence' 'id' 'card',
+	description "It bears a picture of you and lists your name
+ (Nicholas Blanchard), your height (5'9~), your date of birth (a
+ 	    little over 20 years ago) and other facts.",
+ has 	walletsized;
+
+Object -> EBTcard "EBT card"
+ with 	name 'ebt' 'card',
+	description "It's useful for buying food.",
+ has 	walletsized;
+
+Object carKey "key"
+ with 	name 'key',
+	description "The beat-up old key to your beat-up old car.";

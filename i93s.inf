@@ -1,0 +1,38 @@
+Object INinetyThreeS "I-93 South"
+ with 	initial "^Your dreams are troubled.",
+	description [;
+	    switch(self.distance)
+	    {
+	     0: "Not a single car on the road. You can't really discern
+	    whether it's night or day; there is nothing but this vast
+	    	expanse of asphalt.";
+	     1: "~Years ago,^I was an angry young man.^I'd pretend^I
+ 		was a billboard^standing tall^by the side of the
+ road.^I fell in love^with the beautiful highway....~";
+		
+	     2: "You feel you should be able to see Boston from
+ here.";
+	     default: "Somehow it's obvious that you've moved,
+ 		 although nothing has actually changed.";
+	    }
+	],
+	distance 0,
+	s_to [;
+	    self.distance = self.distance + 1;
+	    switch(self.distance)
+		{
+		 1: print "You wander south a little bit.^";
+		 2: print "You put some more distance behind you.^";
+		 default: deadflag = 2;
+		    print "Now it is the highway that is moving; you are
+ 		    only allowing it to slip away.^";
+		}
+	    <Look>;
+	    return true;
+	],
+	before [;
+	 Wake: "You're not sure how.";
+	 Sleep: "You're already asleep.";
+	],
+	cant_go "But this is southbound!",
+ has 	light;

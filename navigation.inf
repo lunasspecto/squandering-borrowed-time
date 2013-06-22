@@ -1,0 +1,55 @@
+Object I5NSeattle "Northbound on Interstate 5, in Seattle"
+    with description [;
+	     print "The viaducts are relatively clear, and the setting
+    sun is visible for once, gilding the harbor with its assembled
+    		 yachts and ferries.^^Where are you going now?^";
+	     DisplayMCMenu(I5toSeattle);
+	     rtrue;
+	 ],
+    has light;
+
+Menu driveFromRavine;
+
+Menu -> I5toSeattle "Take Interstate 5 north to Seattle."
+ with 	mcchoice_action [;
+	    print "You encounter little traffic on your way into the
+ city.^";
+	    move car to I5NSeattle;
+	    PlayerTo(I5NSeattle, false);
+	    rtrue;
+	];
+
+Choice -> -> ToUW "To the University of Washington."
+    with mcchoice_action [;
+	     print "You prepare to take exit 169 for the West Campus
+    residence halls.";
+	     FlashbackHope();
+	     move selfobj to UWCampus;
+	     return true;
+	 ];
+
+Choice -> -> To90E "To Interstate 90, and home from there."
+    with mcchoice_action [;
+	     print "You transfer to Interstate 90 at the junction and
+    		 get the hell out of Seattle.";
+	     FlashbackHope();
+	     move selfobj to RestStop;
+	     return true;
+	 ];
+
+Choice -> ToSumner "Take Washington State Highway 512 to your old
+    hometown, Sumner."
+    with mcchoice_action [;
+	     print "Mt Rainier seems to grow in the distance as
+    		 you make your way east.";
+	     FlashbackHope();
+	     move selfobj to SumnerPlayground;
+	     return true;
+	 ];
+
+Choice -> IntoRavine "Drive into the ravine."
+    with mcchoice_action [;
+	     deadflag = true;
+	     "~Fuck it,~ you say to yourself as you and your car
+    hurtle into the ravine.";
+	 ];

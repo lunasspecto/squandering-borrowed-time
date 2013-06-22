@@ -1,0 +1,33 @@
+[ Initialise;
+#Ifdef TARGET_ZCODE;
+    @piracy ?notpirated;
+    print "^^PIRATE WAREZ BONUS CONTENT UNLOCKED";
+    KeyCharPrimitive();
+    ClearScreen(0);
+    MainWindow();
+    .notpirated;
+#Endif;
+    selfobj.description = SelfDescription;
+    location = ravine;
+    move noFaith to player;
+    move stone to player;
+    move carKey to player;
+    move wallet to player;
+    new_line;
+    print "^You and Kerouac are both at least nominally from
+    Lowell. And you're both from Qu@'eb@'ecois families. But the
+    similarity ends about there. What you need, he said, is ~the
+    energy of a benny addict.~ He had it, and you don't. What you ";
+    style underline;
+    print "do";
+    style roman;
+    " have, at long last, is the use of a car and enough cash to fuel
+    it all the way to the West. Never mind that these things are only
+    yours for the moment.^^";
+];
+
+[ SelfDescription;
+    print_ret "Younger than you feel, shorter than you'd
+    like, and not very well-groomed all around. Conventional wisdom
+    	says you should be a handsome person.", (note) 9;
+];

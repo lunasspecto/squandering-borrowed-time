@@ -1,0 +1,90 @@
+Constant TASKS_PROVIDED;
+Constant NUMBER_TASKS = 2;
+Constant MAX_SCORE = 2;
+Array task_scores -> 1 1;
+Constant DEATH_MENTION_UNDO;
+Constant DIALECT_US;
+Constant MAX_MCCHOICES = 10;
+
+Constant Story "Squandering borrowed time";
+! El título en castellano: "Despilfarrar tiempo prestado"
+Constant Headline ", a game by Dominique Cypr@`es.^New players
+    are encouraged to use the ~ABOUT~ command.^";
+Release 1;
+Include "Parser.h";
+Include "yesno.h";
+Include "shuffle.h";
+
+Attribute walletsized;
+
+Include "multichoice.inf";    
+Include "messages.inf";
+Include "songs.inf";
+
+[ PrintTaskName task_number;
+    switch (task_number)
+    {
+     0: "dropping the damn rock";
+     1: "driving the hell away from that middle-of-nowhere observation
+    point";
+    }
+];
+
+[ PrintVerb word;
+    switch (word) 
+    {
+     'score': print "check the score";
+	return true;
+     'xyzzy': print "cast the ~xyzzy~ spell";
+ 	return true;
+     'about', 'info', 'informational', 'menu', 'hint', 'hints',
+     'help': print "launch the informational menu";
+	return true;
+     'walkthrough', 'walkthru': print "obtain a walkthrough";
+	return true;
+     default: return false;
+    }
+];
+
+Include "VerbLib.h";
+Include "Grammar.h";
+Include "notes.inf";
+Include "about.inf";
+Include "verbs.inf";
+Include "intro.inf";
+Include "navigation.inf";
+Include "flashhope.inf";
+Include "i93s.inf";
+
+Object UWCampus "Somewhere on the UW campus"
+ has 	light;
+
+Object RestStop "A rest stop somewhere in Idaho"
+ has 	light;
+
+Object SumnerPlayground "A playground in Sumner, Washington"
+ with 	description [; "You spent many school recesses here during the
+ six years your family lived here. It was here that you first met Hope
+ Andersson, or so I presume.", (note) 13, " Nothing much has changed
+ in the intervening years, except that they seem to have got rid of a
+ couple of the more dangerous pieces of equipment and replaced the
+ swings. School is out today and everyone except you has
+ somewhere better to be."; ],
+	before [;
+	 Listen: if (noun == nothing) "There's little to hear. With
+ night making its hesitant approach, though, you think you can make
+ out the sound of frogs in the tall grass beyond everything.^^You
+ remember once the volcanic eruption sirens were tested here. The
+ piercing sounds, everyone gathering in groups, rehearsing the
+ beginning of an uphill hike into Bonney Lake, though in reality no
+ 	    pyroclastic flow was hurtling into the valley from
+ Mt. Rainier.";
+	    return false;
+	],
+ has 	light;
+
+
+Object Storeroom "The storeroom"
+ has 	light;
+
+Include "initialise.inf";

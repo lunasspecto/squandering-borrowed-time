@@ -1,0 +1,76 @@
+[ FlashbackHope;
+    print "^^Driving these familiar roads brings you back to the
+    scattered memories you have of your childhood in the Pacific
+    	Northwest, much of it spent with one Hope Andersson....^";
+    ChangePlayer(NickAge10, false);
+    <<Look>>;
+];
+
+Object HopeAndersson "Hope Andersson"
+ with 	name 'hope' 'andersson' 'girl',
+	before [;
+	    print "As quickly as she appeared, Hope is gone. She
+ didn't walk away; she just... stopped being there.^^And the very next
+ day she wasn't at school; her parents had abruptly moved away.^^At
+ least, you swore to me that was exactly how it happened.", (note) 11,
+ "^";
+	    ChangePlayer(selfobj, false);
+	    <<Look>>;
+	],  
+ has 	animate female static proper;
+
+Object GrassField "In the tall grass"
+with description "All you remember of this place is tall yellow grass and gray
+	    sheet clouds.",
+	time_left,
+	time_out [;
+	    move HopeAndersson to self;
+	    "^Hope appears as from nowhere, the grass accommodating her
+	    deferentially.";
+	],
+	initial [;
+	    StartTimer(self, 2);
+	    return true;
+	],
+	before [;
+	 Listen:
+	    if (noun == nothing) "A cicada buzzes somewhere in the
+	    distance.";
+ 	    else return false;
+	],
+	cant_go [;
+	    print "You wander a little to ", (the) noun, ", but still
+		find yourself...^";
+	    <<Look>>;
+	],
+	u_to "Would that you could ascend beyond the clouds and see
+	    the way of heaven!",
+	d_to "Would that you could descend below the grass and feel the pulse
+	    of the earth!",
+	in_to "You are already in the center of it all.",
+	out_to "There is no indication that the grass ends in any
+	    direction.",
+default_go out_to,
+ has 	light;
+
+Object -> TallGrass "grass"
+ with 	name 'tall' 'yellow' 'grass',
+	description "Dry as it is, it's still alive, and it seems to know
+ 	    you. Right now it is still, as there is no wind.",
+ has 	scenery pluralname;
+
+Object -> GreySheetClouds "clouds"
+ with 	name 'grey' 'sheet' 'clouds',
+	description "The clouds insulate and dampen, but threaten nothing more
+	    than a light drizzle.",
+ has 	scenery pluralname;
+
+
+Object -> NickAge10 "yourself"
+ with 	number,
+	description "As you recall, at ten years of age you were a
+ child to whom the world was largely open and wooded and full of cool
+ mists and camphor-scented. If you had a life ambition, it probably
+ involved becoming a professional connoisseur of the varied aromas of
+ rain-soaked pines."
+ has 	animate male;

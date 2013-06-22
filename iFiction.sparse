@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <bibliographic>
+            <title>Squandering borrowed time</title>
+            <author>Dominique Cyprès</author>
+            <headline>a game</headline>
+            <genre>Fiction</genre>
+            <firstpublished>2013</firstpublished>
+            <description>Nick's parents knew he needed some sort of escape. So they sent him off to Seattle in his father's old Nissan Corolla to pick up his Uncle Ted, who had just earned his PhD and landed a job back east. With the first leg of the journey nearly complete, Nick need only get back home with his uncle -- and in one piece.</description>
+            <language>en-US</language>
+            <group>Inform</group>
+        </bibliographic>
+        <contacts>
+            <authoremail>lunasspecto@gmail.com</authoremail>
+        </contacts>
+        <cover>
+            <format>jpg</format>
+            <height>960</height>
+            <width>960</width>
+        </cover>                  
+    </story>
+</ifindex>

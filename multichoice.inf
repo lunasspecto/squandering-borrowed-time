@@ -1,0 +1,64 @@
+#Ifndef MAX_MCCHOICES;
+    Constant MAX_MCCHOICES = 10;
+#Endif;
+
+Array mcmenu_choices --> MAX_MCCHOICES;
+
+Class Menu
+ with 	zero_to_exit false; ! False for no 0 option, 1 for "0 to
+! exit," or 2 for "0 to say nothing."
+
+Class 	Choice
+ with 	mcchoice_action "*** Programming error: menu choice left
+ unimplemented.";
+
+[ DisplayMCMenu mcmenu mcchoice i;
+    i = 0;
+    objectloop(mcchoice in mcmenu)
+     {
+	i = i + 1;
+	print i, ") ", (name) mcchoice;
+	new_line;
+	if (i > MAX_MCCHOICES) "*** Programming error: maximum number of
+    	menu choices exceeded. ***";
+	else mcmenu_choices --> (i - 1) = mcchoice;
+    }
+    i = GetChoiceNumber(i, mcmenu.zero_to_exit);
+    if (i == 0) return 0;
+    mcchoice = mcmenu_choices --> (i - 1);
+    if (mcchoice.mcchoice_action ofclass String) print (string)
+    mcchoice.mcchoice_action, "^";
+    if (mcchoice.mcchoice_action ofclass Routine)
+    mcchoice.mcchoice_action();
+    rtrue;
+];
+
+[ GetChoiceNumber max zero_to_exit n min;
+    new_line;
+    switch (zero_to_exit)
+    {
+	false: min = 1;
+	default: min = 0;
+    }
+    if (max == 0)
+    {
+	style bold;
+	print "^^*** Programming error: multiple-choice routine called
+    	    without a number of choices defined. ***^";
+	style roman;
+	return false;
+    }
+    n = -1000;
+    while ((n < min) || (n > max)) 
+    {
+	print "Select an option";
+	switch (zero_to_exit) {
+	 1: print ", or choose 0 to exit the menu";
+	 2: print ", or choose 0 to say nothing";
+	}
+	print ". >>";
+	read buffer parse DrawStatusLine;
+	n = TryNumber(1);
+    }
+    return n;
+];

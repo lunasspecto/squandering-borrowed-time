@@ -1,0 +1,28 @@
+[ PrintSongName n;
+ n = Shuffle(22);
+ switch (n) {
+  1: "~Empty,~ by the Cranberries.";
+  2: "~Mercy Street,~ by Peter Gabriel.";
+  3: "~The Black Velvet Band~ and think of Ireland.", (note) 2;
+  4: "~How Great Thou Art,~ your favorite hymn.";
+  5: "~Long, Long, Long,~ by The Beatles.";
+  6: "~Rock Classics,~ by the Knife.";
+  7: "~Folsom Prison Blues,~ by Johnny Cash.";
+  8: "~(Sittin' On) The Dock of the Bay,~ by Otis Redding.";
+  9: "~The Sidewinder Sleeps Tonight,~ by R.E.M.";
+  10: print_ret "~The Internationale~ in your most revolutionary
+ voice.", (note) 3;
+  11: "~Scythian Empires,~ by Andrew Bird.";
+  12: "~Passenger Seat,~ by Death Cab for Cutie.";
+  13: "~No Rain,~ by Blind Melon.";
+  14: "~No Surprises~ by Radiohead.";
+  15: "~Summer in the City,~ by Regina Spektor.";
+  16: "~Working Class Hero,~ by John Lennon.";
+  17: "~Riders on the Storm,~ by The Doors.";
+  18: "~The Wild Rover.~";
+  19: "~The Man Who Sold the World,~ by David Bowie.";
+  20: "~All Tomorrow's Parties,~ by The Velvet Underground.";
+  21: "~(Nothing But) Flowers,~ by The Talking Heads";
+  default: "~500 Miles,~ that old folk favorite.", (note) 10;
+  }
+ ];

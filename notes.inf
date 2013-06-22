@@ -1,0 +1,50 @@
+CONSTANT MAX_FOOTNOTES = 50;
+Constant Redisplay_Footnotes = 1;
+
+[ PrintNote n;
+ switch (n) {
+  1: "Misanthropy seems to be quite in fashion, after all.";
+  2: "Not that you've ever been to Ireland.";
+  3: "Not that you're actually a Communist. You'd like to be, but you
+     don't have the faith in humanity to pull it off. Same goes for
+     anarchism. If you change your mind about that, though, my friends
+     and I would be happy to take you into our ranks.";
+  4: print "Alright, so you're not completely ~from~ Lowell. You
+	 always tell people you're from Lowell. You were born in
+	 Lowell, and you live in Lowell now. But you did your
+	 growing-up in a few places, including Sumner,
+	 Washington. Still, ~I'm from "; style underline; print
+	 "nowhere"; style roman; ", man~ never seemed like an
+	 appropriate response to that old question of origin.";
+  5: print "Hitchhiking ain't nearly what it was in Kerouac's day.",
+      (note) 6, " Also, he "; style underline; print "was"; style
+      roman; " a benny addict.";
+  6: print "Lately, you've been adopting certain southernisms,
+	 including "; style underline; print "ain't"; style roman;
+     print " and "; style underline; print "y'all"; style roman; print
+	 ". "; style underline; print "Irregardless"; style roman; ",
+	 however, is not yet in your vocabulary.";
+  7: "You like comics, but I suppose you're more an Alan Moore guy than a
+     Stan Lee fan.";
+  8: "Well, I imagine you've heard of driving cattle, but you're unlikely to
+     encounter any.";
+  9: "~Monday's child is fair of face^Tuesday's child is full of
+     grace^Wednesday's child is full of woe^Thursday's child has far
+     to go^Friday's child is loving and giving^Saturday's child works
+     for a living^But the child who is born on the Sabbath Day^Is
+     bonny and blithe and good and gay.~^^(Or so they say.)";
+  10: "~If you miss the train I'm on^You will know that I am gone;^You
+     can hear the whistle blow^A hundred miles...~";
+  11: "You swore to me that was exactly how it happened.", (note) 12,
+ " Of course, you've always had a penchant for believing the fantastic
+ and fabulous. It's one of the things I like most about you.^^Anyway,
+ I promise I'll bring Hope Andersson back into this shomehow. She's
+ not much of a character yet, after all, and I suspect she's too
+ important to you to remain that way.";
+  12: "That's right, it's really Dominique! I do hope you're well,
+     Nick.";
+  default: "ERROR: Unimplemented footnote.";
+  }
+ ];
+
+Include "Footnote.h";

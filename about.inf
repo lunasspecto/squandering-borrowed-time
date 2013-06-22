@@ -1,0 +1,36 @@
+Verb meta 'about' 'info' 'informational' 'menu' 'hint' 'hints' 'help'
+    * 					-> AboutMenu;
+
+Verb meta 'walkthrough' 'walkthru' * -> Walkthrough;
+
+[ AboutMenuSub;
+    return DisplayMCMenu(about);
+    ];
+
+Menu about
+    with zero_to_exit 1;
+
+Choice -> first_time
+    with short_name [; print "Read information for first-time players
+    of ~", (string) Story, "~."; rtrue; ],
+    mcchoice_action [; "~", (string) Story, "~ is interactive
+    fiction. Blah, blah, blah. Contact the author at
+    lunasspecto@@64gmail.com."; ];
+
+
+Choice -> credits "Read the game's credits.",
+    with mcchoice_action [; "~", (string) Story, "~ was written by Dominique
+    Cypr@`es using version 6 of the Inform development system by
+    Graham Nelson. Library extensions used include yesno.h and
+    Footnote.h by L. Ross Raszewski; and shuffle.h by Roger Firth."; ];
+
+
+Choice -> walkthrough "Obtain a walkthrough.",
+    with mcchoice_action [;
+	     <<Walkthrough>>;
+	 ];
+
+[ WalkthroughSub;
+    "Well, this game isn't finished, so there isn't a walkthrough
+    yet.";
+];

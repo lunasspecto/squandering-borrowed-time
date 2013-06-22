@@ -1,0 +1,28 @@
+Object LibraryMessages
+ with 	before [;
+  	 Attack: "Your wrath gets you nowhere.";
+   	 Sing:
+   	    print "You sing ";
+    	    return PrintSongName();
+	 Inv:
+	    if (lm_n == 2) {
+		print "You have";
+		return true;
+	    }
+	 Sorry: "You should be.";
+	 Strong: "That's right. Let it all out.";
+	 VagueGo: if (location provides default_go) {
+	     if (location.default_go ofclass CompassDirection) <<Go
+ location.default_go>>;
+	     if (location.default_go ofclass String) print_ret (string)
+ location.default_go;
+	     if (location.default_go ofclass Routine) return
+ 		 location.default_go;
+	     }
+	    return false;
+	 Miscellany:
+	    switch (lm_n) {
+     	     10: "Yeah, I'm stumped too.";
+     	     default: return false;
+     	    }
+	];
