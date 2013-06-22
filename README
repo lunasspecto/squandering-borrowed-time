@@ -1,0 +1,29 @@
+"Squandering borrowed time," an Inform game by Dominique Cyprès.
+
+The game is still at a very very early stage of development and not ready for
+release.
+
+Included is a makefile created for compiling the project on the author's
+system. It assumes the presence of the Inform compiler and library, and the
+babel software suite, both available from the IF Archive at
+http://www.ifarchive.org/  For the "source-dist" source distribution target,
+it also assumes the presence of tar and the full version of p7zip.
+
+The library extensions included, each of which has a .h extension, are written
+by other authors and their authorship and license information are detailed
+within. They are included in the source repository for convenience. They can
+also be obtained from the IF Archive.
+
+The photograph used in the cover image is by Flickr user Matt Shalvatis:
+http://www.flickr.com/photos/mattsh/7309633434/
+It is used under the terms of the Creative Commons
+Attribution-NonCommercial-ShareAlike 2.0 License:
+http://creativecommons.org/licenses/by-nc-sa/2.0/
+
+The fonts used in the cover image are Circulate BRK and Bewilder Thick BRK by
+Brian Kent.
+
+The author, Dominique Cypès, licenses this
+work under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0
+License:
+http://creativecommons.org/licenses/by-nc-sa/3.0/
