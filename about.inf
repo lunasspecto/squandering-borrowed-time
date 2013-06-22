@@ -22,7 +22,15 @@ Choice -> credits "Read the game's credits.",
     with mcchoice_action [; "~", (string) Story, "~ was written by Dominique
     Cypr@`es using version 6 of the Inform development system by
     Graham Nelson. Library extensions used include yesno.h and
-    Footnote.h by L. Ross Raszewski; and shuffle.h by Roger Firth."; ];
+    Footnote.h by L. Ross Raszewski; and shuffle.h by Roger
+    Firth.^^The cover image includes a photograph by Flickr user Matt
+    Shalvatis, available
+    at:^http://www.flickr.com/photos/mattsh/7309633434/^It is used
+    under the terms of the Creative Commons
+    Attribution-NonCommercial-ShareAlike 2.0
+    License:^http://creativecommons.org/licenses/by-nc-sa/2.0/^^The
+    fonts used in the cover image are Circulate BRK and Bewilder Thick
+    BRK by Brian Kent."; ];
 
 
 Choice -> walkthrough "Obtain a walkthrough.",
