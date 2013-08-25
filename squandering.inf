@@ -68,21 +68,53 @@ Object SumnerPlayground "A playground in Sumner, Washington"
  Andersson, or so I presume.", (note) 13, " Nothing much has changed
  in the intervening years, except that they seem to have got rid of a
  couple of the more dangerous pieces of equipment and replaced the
- swings. School is out today and everyone except you has
- somewhere better to be."; ],
+ swings. School is out today and everyone except you has somewhere
+ better to be.^^The school lies to the east. To the west an expanse of
+ tall grass stretches off some distance"; ],
 	before [;
-	 Listen: if (noun == nothing) "There's little to hear. With
+	 Listen:
+	    if (noun == nothing) "There's little to hear. With
  night making its hesitant approach, though, you think you can make
- out the sound of frogs in the tall grass beyond everything.^^You
- remember once the volcanic eruption sirens were tested here. The
- piercing sounds, everyone gathering in groups, rehearsing the
- beginning of an uphill hike into Bonney Lake, though in reality no
- 	    pyroclastic flow was hurtling into the valley from
+ out the sound of frogs in the tall grass to the north, beyond
+ everything.^^You remember once the volcanic eruption sirens were
+ tested here. The piercing sounds, everyone gathering in groups,
+ rehearsing the beginning of an uphill hike into Bonney Lake, though
+ in reality no pyroclastic flow was hurtling into the valley from
  Mt. Rainier.";
 	    return false;
 	],
+	u_to slide,
  has 	light;
 
+Object -> swings "swings"
+ with 	name 'swings' 'swing',
+ has 	static pluralname;
+
+Object -> slide "slide"
+ with 	name 'slide',
+	door_dir u_to,
+	door_to HalfwaySlide,
+ has 	static door ~openable open;
+
+Object -> monkeybars "monkey bars"
+ with 	name 'monkey' 'bars' 'monkeybars',
+ has 	static pluralname;
+
+Object -> playgroundgrass "tall grass"
+ with 	name 'tall' 'grass',
+ has 	scenery door open ~openable;
+
+Object HalfwaySlide "Halfway up the slide"
+ with 	description "The only way out is down.",
+	d_to SumnerPlayground,
+	after [;
+	 Drop:
+	    move noun to SumnerPlayground;
+	    print (The) noun, " fall";
+	    if (noun hasnt pluralname) print "s";
+	    " down the slide and out of sight.";
+	],
+ has 	light;
 
 Object Storeroom "The storeroom"
  has 	light;
