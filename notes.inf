@@ -43,6 +43,8 @@ Constant Redisplay_Footnotes = 1;
  important to you to remain that way.";
   12: "That's right, it's really Dominique! I do hope you're well,
      Nick.";
+  13: "It's been far too long since we've spoken, Nick. Hopefully it
+     won't be much longer.";
   default: "ERROR: Unimplemented footnote.";
   }
  ];
