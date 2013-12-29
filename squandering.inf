@@ -116,7 +116,50 @@ Object HalfwaySlide "Halfway up the slide"
 	],
  has 	light;
 
-Object Storeroom "The storeroom"
+Class 	SamuraiTortoise
+ with 	name 'samurai' 'tortoise' 'action' 'figure' 'doll'
+	    'figures//p' 'dolls//p' 'tortoises//p',
+	short_name "Samurai Tortoise action figure",
+	description "They don't make 'em like the used to.",
+	plural "Samurai Tortoise action figures";
+
+Object 	Storeroom "The storeroom"
+ with 	description "The size of the sales floor is exhausting to
+ 	    contemplate, but the storeroom is a veritable city of
+	    junk. At this deserted end of the place aisles of shelves
+ 	    rise to sickening heights, and atop them sit precarious
+	    stacks of cardboard boxes from Vietnam, China, Sri
+ 	    Lanka...^^To the north is a small alcove where the shelves
+	    end. To the south are other, busier facilities. East and
+	    west lead into the shelving aisles.",
  has 	light;
+
+Object 	-> ThreeTierCart "cart"
+ with 	name 'red' 'wire' 'three' 'tier' 'three-tier' 'cart',
+	description "A red wire three-tier cart of the kind reserved for
+ 	    employee use.",
+	before [;
+	 PushDir:
+	    AllowPushDir();
+	    return true;
+	],
+ has 	container static open ~openable;
+
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+SamuraiTortoise -> ->;
+
+
 
 Include "initialise.inf";
