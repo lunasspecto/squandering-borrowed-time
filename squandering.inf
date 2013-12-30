@@ -128,10 +128,14 @@ Object 	Storeroom "The storeroom"
  	    contemplate, but the storeroom is a veritable city of
 	    junk. At this deserted end of the place aisles of shelves
  	    rise to sickening heights, and atop them sit precarious
-	    stacks of cardboard boxes from Vietnam, China, Sri
- 	    Lanka...^^To the north is a small alcove where the shelves
-	    end. To the south are other, busier facilities. East and
-	    west lead into the shelving aisles.",
+	    stacks of cardboard boxes from Vietnam, China,
+	    Bangladesh...^^To the north is a small alcove where the
+	    shelves end. To the south are other, busier facilities.
+	    East and west lead into the shelving aisles.",
+	s_to "And walk out on the first shift of your first real job?
+	    Not likely.",
+	e_to AisleTwentySeven,
+	w_to AisleTwentyFour,
  has 	light;
 
 Object 	-> ThreeTierCart "cart"
@@ -160,6 +164,36 @@ SamuraiTortoise -> ->;
 SamuraiTortoise -> ->;
 SamuraiTortoise -> ->;
 
+Object AisleTwentySeven "Aisle 27"
+ with 	description "One of several aisles dedicated to toys.",
+	w_to Storeroom,
+ has 	light;
+
+Object AisleTwentyFour "Aisle 24"
+ with	description "An aisle for luggage.",
+	e_to Storeroom,
+ has 	light;
+
+Object StoreroomAlcove "An alcove in the storeroom"
+with description "Odds and ends are kept here at the far north end of
+	    the storeroom.^^Aisles of shelving lead west and east. To
+	    the south is the part of the storeroom from which you
+	    came.",
+	s_to Storeroom,
+	w_to AisleTwentyFive,
+	e_to AisleTwentySix,
+ has 	light;
+
+Object AisleTwentyFive "Aisle 25"
+ with 	description "This aisle houses automotive goods.",
+	e_to StoreroomAlcove,
+ has 	light;
+
+Object AisleTwentySix "Aisle 26"
+ with 	description "An aisle for brightly colored pre-schoolers'
+ toys.",
+	w_to StoreroomAlcove,
+ has 	light;
 
 
 Include "initialise.inf";
