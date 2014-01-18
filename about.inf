@@ -94,7 +94,8 @@ Choice -> first_time
 	style bold;
 	print "NOTE";
 	style roman;
-	" command followed by the number of the note.", (note) 14; 
+	" command followed by the number of the note, which will
+    appear in citations like this:", (note) 14; 
     ];
 
 
