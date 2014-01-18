@@ -1,6 +1,7 @@
 [ Initialise;
 #Ifdef TARGET_ZCODE;
     @piracy ?notpirated;
+    pirated = true;
     print "^^PIRATE WAREZ BONUS CONTENT UNLOCKED";
     KeyCharPrimitive();
     ClearScreen(0);
@@ -13,11 +14,37 @@
     move stone to player;
     move carKey to player;
     move wallet to player;
-    new_line;
-    print "^You and Kerouac are both at least nominally from
-    Lowell. And you're both from Qu@'eb@'ecois families. But the
-    similarity ends about there. What you need, he said, is ~the
-    energy of a benny addict.~ He had it, and you don't. What you ";
+    print "^^^Al! I hope this finds you well, if it finds you at
+	all. You were -- and this is no exaggeration, really -- the
+	closest I had to a friend in all my time at UMass until your
+	unceremonious disappearance. When you dropped out it was an
+	ill omen for me; you and I had so many of the same problems
+	and it was only a matter of time before they caught up with me
+	too.^^I tried very hard to contact you when I dropped
+	out. I've been assuming that as bad as we both are with this
+	sort of thing, you just haven't got any of my messages, but if
+	you've been receiving them and just don't want to know me
+	anymore, then take this as my last goodbye; I will not write
+	to you again unless you respond to me via e-mail at
+	lunasspecto@@64gmail.com.^^I wrote you a text adventure! Don't
+	be ";
+    style underline;
+    print "too";
+    style roman;
+    print " flattered; the only virtue of being underemployed is that
+	I have an abundance of time to indulge in hobbies like
+	this. If you need to know a little more about it, you can try
+	the ";
+    style bold;
+    print "ABOUT";
+    style roman;
+    print " command.^^This is kind of a story about you, and kind of a
+	story about me, and kind of not about either of us. It's like
+	this:^^You and Kerouac are both at least nominally from
+	Lowell. And you're both from Qu@'eb@'ecois families. But the
+	similarity ends about there. What you need, he said, is	~the
+	energy of a benny addict.~ He had it, and you don't. What you
+	";
     style underline;
     print "do";
     style roman;

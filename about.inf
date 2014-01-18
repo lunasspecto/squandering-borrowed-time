@@ -11,11 +11,86 @@ Menu about
     with zero_to_exit 1;
 
 Choice -> first_time
-    with short_name [; print "Read information for first-time players
-    of ~", (string) Story, "~."; rtrue; ],
-    mcchoice_action [; "~", (string) Story, "~ is interactive
-    fiction. Blah, blah, blah. Contact the author at
-    lunasspecto@@64gmail.com."; ];
+    with short_name [; print "What "; style underline; print "is";
+    style roman; print " this shit anyway?"; return true; ],
+    mcchoice_action [;
+	print "~", (string) Story, "~ is a text adventure, or
+    ~interactive fiction~ or whatever. You control the events of the
+    story by typing things like ";
+	style bold;
+	print "GO WEST";
+	style roman;
+	print " or ";
+	style bold;
+	print "TAKE STATUETTE";
+	style roman;
+	print ". Basically, it's like ";
+	style underline;
+	print "Zork";
+	style roman;
+	print ", except not as good. There are some abbreviations that
+    can help:^^";
+	style bold;
+	print "N";
+	style roman;
+	print " works like ";
+	style bold;
+	print "GO NORTH";
+	style roman;
+	print ", ";
+	style bold;
+	print "SW";
+	style roman;
+ 	print " works like ";
+	style bold;
+	print "GO SOUTHWEST";
+	style roman;
+	print ", and so forth.^";
+	style bold;
+	print "X";
+	style roman;
+	print " works like ";
+	style bold;
+	print "EXAMINE";
+	style roman;
+	print ".^";
+	style bold;
+	print "Z";
+	style roman;
+	print " is shorthand for for ";
+	style bold;
+	print "WAIT";
+	style roman;
+	print ".^";
+	style bold;
+	print "G";
+	style roman;
+	print " means you want to do the same thing ";
+	style bold;
+	print "AGAIN";
+	style roman;
+	print ".^^If you're lost, sometimes it helps to ";
+	style bold;
+	print "LOOK";
+	style roman;
+	print ". You may also find ";
+	style bold;
+	print "SAVE";
+	style roman;
+	print ", ";
+	style bold;
+	print "RESTORE";
+	style roman;
+	print ", ";
+	style bold;
+	print "RESTART";
+	style roman;
+	print ", and ";
+	style bold;
+	print "QUIT";
+	style roman;
+	" useful.";
+    ];
 
 
 Choice -> credits "Read the game's credits.",

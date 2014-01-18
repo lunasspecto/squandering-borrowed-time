@@ -199,7 +199,7 @@ Object wallet "wallet"
 Object -> license "driver's license"
  with 	name 'driving' 'driver' 'driver^s' 'license' 'licence' 'id' 'card',
 	description "It bears a picture of you and lists your name
- (Nicholas Blanchard), your height (5'9~), your date of birth (a
+ (Alexander Blanchard), your height (5'9~), your date of birth (a
  	    little over 20 years ago) and other facts.",
  has 	walletsized;
 

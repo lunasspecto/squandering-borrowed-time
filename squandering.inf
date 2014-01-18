@@ -6,10 +6,11 @@ Constant DEATH_MENTION_UNDO;
 Constant DIALECT_US;
 Constant MAX_MCCHOICES = 10;
 
+Global pirated = false;
+
 Constant Story "Squandering borrowed time";
-! El título en castellano: "Despilfarrar tiempo prestado"
-Constant Headline ", a game by Dominique Cypr@`es.^New players
-    are encouraged to use the ~ABOUT~ command.^";
+! en castellano: "Despilfarrar tiempo prestado"
+Constant Headline ", a game by Dominique Cypr@`es.^";
 Release 1;
 Include "Parser.h";
 Include "yesno.h";
@@ -116,84 +117,7 @@ Object HalfwaySlide "Halfway up the slide"
 	],
  has 	light;
 
-Class 	SamuraiTortoise
- with 	name 'samurai' 'tortoise' 'action' 'figure' 'doll'
-	    'figures//p' 'dolls//p' 'tortoises//p',
-	short_name "Samurai Tortoise action figure",
-	description "They don't make 'em like the used to.",
-	plural "Samurai Tortoise action figures";
 
-Object 	Storeroom "The storeroom"
- with 	description "The size of the sales floor is exhausting to
- 	    contemplate, but the storeroom is a veritable city of
-	    junk. At this deserted end of the place aisles of shelves
- 	    rise to sickening heights, and atop them sit precarious
-	    stacks of cardboard boxes from Vietnam, China,
-	    Bangladesh...^^To the north is a small alcove where the
-	    shelves end. To the south are other, busier facilities.
-	    East and west lead into the shelving aisles.",
-	s_to "And walk out on the first shift of your first real job?
-	    Not likely.",
-	e_to AisleTwentySeven,
-	w_to AisleTwentyFour,
- has 	light;
-
-Object 	-> ThreeTierCart "cart"
- with 	name 'red' 'wire' 'three' 'tier' 'three-tier' 'cart',
-	description "A red wire three-tier cart of the kind reserved for
- 	    employee use.",
-	before [;
-	 PushDir:
-	    AllowPushDir();
-	    return true;
-	],
- has 	container static open ~openable;
-
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-SamuraiTortoise -> ->;
-
-Object AisleTwentySeven "Aisle 27"
- with 	description "One of several aisles dedicated to toys.",
-	w_to Storeroom,
- has 	light;
-
-Object AisleTwentyFour "Aisle 24"
- with	description "An aisle for luggage.",
-	e_to Storeroom,
- has 	light;
-
-Object StoreroomAlcove "An alcove in the storeroom"
-with description "Odds and ends are kept here at the far north end of
-	    the storeroom.^^Aisles of shelving lead west and east. To
-	    the south is the part of the storeroom from which you
-	    came.",
-	s_to Storeroom,
-	w_to AisleTwentyFive,
-	e_to AisleTwentySix,
- has 	light;
-
-Object AisleTwentyFive "Aisle 25"
- with 	description "This aisle houses automotive goods.",
-	e_to StoreroomAlcove,
- has 	light;
-
-Object AisleTwentySix "Aisle 26"
- with 	description "An aisle for brightly colored pre-schoolers'
- toys.",
-	w_to StoreroomAlcove,
- has 	light;
-
+Include "storeroom.inf";
 
 Include "initialise.inf";
