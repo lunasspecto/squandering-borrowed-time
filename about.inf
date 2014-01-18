@@ -89,7 +89,12 @@ Choice -> first_time
 	style bold;
 	print "QUIT";
 	style roman;
-	" useful.";
+	print " useful.^^ I have placed numbered footnotes throughout
+    the game, and you can read them when they appear using the ";
+	style bold;
+	print "NOTE";
+	style roman;
+	" command followed by the number of the note.", (note) 14; 
     ];
 
 

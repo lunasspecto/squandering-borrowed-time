@@ -2,7 +2,7 @@
     print "^^Driving these familiar roads brings you back to the
     scattered memories you have of your childhood in the Pacific
     	Northwest, much of it spent with one Hope Andersson....^";
-    ChangePlayer(NickAge10, false);
+    ChangePlayer(AlAge10, false);
     <<Look>>;
 ];
 
@@ -66,7 +66,7 @@ Object -> GreySheetClouds "clouds"
  has 	scenery pluralname;
 
 
-Object -> NickAge10 "yourself"
+Object -> AlAge10 "yourself"
  with 	number,
 	description "As you recall, at ten years of age you were a
  child to whom the world was largely open and wooded and full of cool
