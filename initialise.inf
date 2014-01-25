@@ -10,10 +10,6 @@
 #Endif;
     selfobj.description = SelfDescription;
     location = ravine;
-    move noFaith to player;
-    move stone to player;
-    move carKey to player;
-    move wallet to player;
     print "^^^Al! I hope this finds you well, if it finds you at
 	all. You were -- and this is no exaggeration, really -- the
 	closest I had to a friend in all my time at UMass until your

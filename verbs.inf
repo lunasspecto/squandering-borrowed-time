@@ -5,6 +5,9 @@ Verb 'drive'
     * 					-> Drive
     * noun 				-> Drive;
 
+Verb 'start'
+    * noun 				-> SwitchOn;
+
 [ XyzzySub;
     "You try an eldritch spell you learned in childhood, but no demon appears to do your bidding. Shit.";
 ];

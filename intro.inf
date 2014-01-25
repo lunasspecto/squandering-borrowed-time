@@ -1,4 +1,4 @@
-Object noFaith "no faith in humanity"
+Object noFaith "no faith in humanity" selfobj
  with name 'faithlessness' 'no' 'faith' 'in' 'humanity',
   description [;
       print_ret "You see nothing special about having no faith in
@@ -13,7 +13,7 @@ Object noFaith "no faith in humanity"
    ],
  has proper;
 
-Object stone "heavy stone"
+Object stone "heavy stone" selfobj
  with name 'heavy' 'stone' 'rock' 'rocks',
   description "You've really no idea why you ever picked it up. It
       must have been part of some deeply symbolic action in your
@@ -149,6 +149,15 @@ Object -> car "car"
 	before [;
 	 Go:
 	    <<Drive self>>;
+	 Drive:
+	    if (carKey notin player) "But you aren't holding the
+	 key.";
+	    if (player notin self)
+	    {
+		print "(first entering ", (the) self, ")^";
+		<Enter self>;
+	    }
+	    if (player notin self) return true;
 	 Take:
 	    print "Now, ";
 	    style underline;
@@ -157,12 +166,8 @@ Object -> car "car"
 	    print_ret " would be a feat worthy of Superman.", (note) 7;
 	],
 	after [;
-	    	 Drive:
-	    if (carKey in player)
-	    {
-		if (self has locked) <Unlock self>;
-		if (self has locked) return true;
-		switch (real_location)
+	 Drive:
+	    switch (real_location)
 		{
 		   observationPoint:
 		    Achieved(1);
@@ -173,17 +178,12 @@ Object -> car "car"
 		 default:
 		    "You've nowhere to drive right now.";
 		}
-	    }
-	    else
-	    {
-		"But you aren't holding the key.";
-	    }
 	],
 	with_key carKey,
  has 	switchable enterable static container ~open openable
  lockable;
 
-Object wallet "wallet"
+Object wallet "wallet" selfobj
  with 	name 'wallet',
 	description "A plain canvass affair.",
 	before [;
@@ -196,18 +196,18 @@ Object wallet "wallet"
 	],
  has 	openable container;
 
-Object -> license "driver's license"
+Object license "driver's license" wallet
  with 	name 'driving' 'driver' 'driver^s' 'license' 'licence' 'id' 'card',
 	description "It bears a picture of you and lists your name
  (Alexander Blanchard), your height (5'9~), your date of birth (a
  	    little over 20 years ago) and other facts.",
  has 	walletsized;
 
-Object -> EBTcard "EBT card"
+Object EBTcard "EBT card" wallet
  with 	name 'ebt' 'card',
 	description "It's useful for buying food.",
  has 	walletsized;
 
-Object carKey "key"
+Object carKey "key" selfobj
  with 	name 'key',
 	description "The beat-up old key to your beat-up old car.";
