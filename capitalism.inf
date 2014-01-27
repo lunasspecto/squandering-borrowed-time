@@ -5,11 +5,11 @@ Object 	capitalism "machine called capitalism",
 	    self.number++;
 	    switch(self.number)
 	    {
-	     1: (The) self, " lunges toward you!";
-	     2: (The) self, " hits you hard!";
-	     3: (The) self, " is trying to kill you!";
+	     1: print_ret (The) self, " lunges toward you!";
+	     2: print_ret (The) self, " hits you hard!";
+	     3: print_ret (The) self, " is trying to kill you!";
 	     4: deadflag = true;
-		(The) self, " delivers the killing blow!";
+		print_ret (The) self, " delivers the killing blow!";
 	    }
 	],
  has 	switchable on animate;
