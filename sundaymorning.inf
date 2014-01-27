@@ -1,0 +1,56 @@
+Object 	DormBedroom "Your bedroom",
+ with 	description "It's not much to look at.",
+ has 	light;
+
+Object 	-> StudentSelf "yourself",
+ has 	number,
+	description "You know you look rough.",
+ has 	animate male;
+
+Object 	-> dormChair "hard wooden chair",
+ with 	name 'hard' 'wooden' 'wood' 'chair',
+	description "Comes standard in dorms like these.",
+	before [;
+	 Take: "There's nowhere else you need to bring that.";
+	],
+ has 	container open ~openable enterable;
+
+Object 	-> dormDesk "desk",
+ with 	name 'desk',
+	description "Servicable, but not especially ergonomic.",
+	before [;
+	 Enter: "You haven't the motivation.";
+	],
+ has 	static supporter;
+
+Object 	->-> dormComputer "laptop",
+with name 'laptop' 'pc' 'computer' 'libreoffice' 'libre' 'office'
+	    'writer' 'word' 'processor' 'document' 'cursor',
+	before [;
+	 Close: return false;
+	 Listen: "It's whirring angrily.";
+	 SwitchOff: <<Close self>>;
+	 default: "You can't even look at it without feeling
+	    physically ill.";
+	],
+	after [;
+	 Close:
+	    give self ~on;
+	    "As you turn off and close ", (the) self, " a perfect stillness
+	    descends upon the room.";
+	],
+ has 	switchable on openable open;
+
+Object 	-> dormBed "twin-sized bed"
+ with 	name 'twin' 'twin-sized' 'size' 'sized' 'bed',
+	description "It's not the most comfortable bed you've ever
+ slept in.",
+ has 	supporter enterable static;
+
+[ EnterDorm;
+    print "Dawn has crept in through the window, and here you are
+    still awake. The blinking cursor in LibreOffice Writer has not
+    moved for hours.^";
+    ChangePlayer(StudentSelf, false);
+    <<Look>>;
+];

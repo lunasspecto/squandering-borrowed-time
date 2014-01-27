@@ -13,9 +13,19 @@ Verb 'start'
 ];
 
 [ DriveSub;
-    if (noun ofclass CompassDirection) "Supplying a direction in which
-    to drive is unnecessary in this game. If your car is around, ~DRIVE~
-    or ~DRIVE COROLLA~ should do the trick.";
+    if (noun ofclass CompassDirection)
+    {
+	print "Supplying a direction in which to drive is unnecessary
+    in this game. If your car is around, ";
+	style bold;
+	print "DRIVE";
+	style roman;
+	print " or ";
+	style bold;
+	print "DRIVE COROLLA";
+ 	style roman;
+	" should do the trick.";
+    }
     if (noun == nothing) 
     {
 	if (TestScope(car)) 

@@ -148,7 +148,8 @@ Object -> car "car"
 
 	before [;
 	 Go:
-	    <<Drive self>>;
+	    <Drive noun>;
+	    return 2;
 	 Drive:
 	    if (carKey notin player) "But you aren't holding the
 	 key.";

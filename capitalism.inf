@@ -1,0 +1,15 @@
+Object 	capitalism "machine called capitalism",
+ with 	name 'machine' 'called' 'capitalism',
+	number 0,
+	daemon [;
+	    self.number++;
+	    switch(self.number)
+	    {
+	     1: (The) self, " lunges toward you!";
+	     2: (The) self, " hits you hard!";
+	     3: (The) self, " is trying to kill you!";
+	     4: deadflag = true;
+		(The) self, " delivers the killing blow!";
+	    }
+	],
+ has 	switchable on animate;
