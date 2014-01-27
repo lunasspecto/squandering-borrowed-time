@@ -12,4 +12,4 @@ Object 	capitalism "machine called capitalism",
 		print_ret (The) self, " delivers the killing blow!";
 	    }
 	],
- has 	switchable on animate;
+ has 	switchable on animate neuter;
